@@ -165,7 +165,8 @@ class ThompsonSampler:
                             disallow_mask = self._disallow_tracker.get_disallowed_selection_mask(current_list)
                             selection_scores = np.random.uniform(size=reagent_count_list[p])
                             # null out the disallowed ones
-                            selection_scores[list(disallow_mask)] = np.NaN
+                            #selection_scores[list(disallow_mask)] = np.NaN
+                            selection_scores[list(disallow_mask)] = np.nan
                             # and select a random one
                             current_list[p] = np.nanargmax(selection_scores).item(0)
                         self._disallow_tracker.update(current_list)
